@@ -1,24 +1,26 @@
 # Use Node 20 (required by dependencies)
 FROM node:20-alpine
 
+# Set working directory to api folder
 WORKDIR /app
 
-# Copy package files
+# Copy root package files
 COPY package*.json ./
 COPY apps/api/package*.json ./apps/api/
+COPY packages ./packages
 
 # Install dependencies
 RUN npm install
 
-# Copy source code
+# Copy API source code
 COPY apps/api ./apps/api
-COPY packages ./packages
 
 # Generate Prisma client
-RUN cd apps/api && npx prisma generate
+WORKDIR /app/apps/api
+RUN npx prisma generate
 
 # Expose port
 EXPOSE 3001
 
-# Start the server
-CMD ["npm", "run", "dev", "--workspace=apps/api"]
+# Start the server directly with tsx
+CMD ["npx", "tsx", "src/index.ts"]
