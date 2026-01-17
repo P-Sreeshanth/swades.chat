@@ -3,8 +3,9 @@ builder = "dockerfile"
 dockerfilePath = "apps/api/Dockerfile"
 
 [deploy]
-healthcheckPath = "/health"
-healthcheckTimeout = 100
+# Disabled healthcheck temporarily to debug
+# healthcheckPath = "/health"
+# healthcheckTimeout = 100
 
 [[services]]
 port = 3001
