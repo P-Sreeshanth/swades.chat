@@ -1,14 +1,8 @@
 [build]
-builder = "dockerfile"
-dockerfilePath = "apps/api/Dockerfile"
+builder = "nixpacks"
 
 [deploy]
-# Disabled healthcheck temporarily to debug
-# healthcheckPath = "/health"
-# healthcheckTimeout = 100
+numReplicas = 1
 
 [[services]]
 port = 3001
-
-[variables]
-NODE_ENV = "production"

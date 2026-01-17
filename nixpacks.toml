@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm"]
+
+[phases.install]
+cmds = ["npm install", "cd apps/api && npx prisma generate"]
+
+[start]
+cmd = "cd apps/api && npx tsx src/index.ts"
+
+[variables]
+NODE_ENV = "production"
