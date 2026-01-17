@@ -1,5 +1,6 @@
 [build]
-builder = "nixpacks"
+builder = "dockerfile"
+dockerfilePath = "apps/api/Dockerfile"
 
 [deploy]
 numReplicas = 1
