@@ -105,13 +105,4 @@ ai-support-center/
 | GET | `/api/agents/:type/capabilities` | Get agent capabilities |
 | GET | `/health` | Health check |
 
-## 🧠 Sample Queries
 
-- "Where is my order #ORD-001?" → Order Agent
-- "I was charged twice" → Billing Agent
-- "How do I reset my password?" → Support Agent
-- "Show me my invoices" → Billing Agent
-
-## 📝 License
-
-MIT
