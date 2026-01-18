@@ -8,7 +8,12 @@ const app = new Hono();
 
 app.use('*', requestLogger);
 app.use('*', cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000'],
+    origin: [
+        'http://localhost:5173',
+        'http://localhost:3000',
+        'https://swades-chat.vercel.app',
+        process.env.FRONTEND_URL || ''
+    ].filter(Boolean),
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization'],
     exposeHeaders: ['X-Conversation-Id', 'X-Agent-Type', 'X-Router-Reasoning', 'X-RateLimit-Limit', 'X-RateLimit-Remaining']
